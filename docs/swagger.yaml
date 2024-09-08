@@ -1,0 +1,104 @@
+consumes:
+    - application/json
+definitions:
+    apiError:
+        properties:
+            code:
+                format: int64
+                type: integer
+                x-go-name: Code
+            message:
+                type: string
+                x-go-name: Message
+        type: object
+        x-go-package: notify-hub-backend/docs
+    fetchSentMessage:
+        properties:
+            contents:
+                items:
+                    $ref: '#/definitions/fetchSentMessageContent'
+                type: array
+                x-go-name: Contents
+            recipient:
+                type: string
+                x-go-name: Recipient
+        type: object
+        x-go-package: notify-hub-backend/docs
+    fetchSentMessageContent:
+        properties:
+            content:
+                example: Lorem ipsum data content
+                type: string
+                x-go-name: Content
+            messageId:
+                example: 5f4f647f-26b5-4d27-b603-e5d7f4a9dd08
+                type: string
+                x-go-name: MessageId
+            sendingTime:
+                example: 2024-09-09 15:30
+                x-go-name: SendingTime
+        type: object
+        x-go-package: notify-hub-backend/docs
+    fetchSentMessagesData:
+        properties:
+            sentMessages:
+                items:
+                    $ref: '#/definitions/fetchSentMessage'
+                type: array
+                x-go-name: SentMessages
+        type: object
+        x-go-package: notify-hub-backend/docs
+    switchAutoSendData:
+        properties:
+            autoSendOn:
+                example: true
+                type: boolean
+                x-go-name: AutoSendOn
+        type: object
+        x-go-package: notify-hub-backend/docs
+info:
+    description: Documentation for Service API
+    title: Service API.
+    version: 1.0.0
+paths:
+    /fetch-sent-messages:
+        get:
+            description: Returns response of fetch messages result
+            operationId: fetchSentMessagesRequest
+            responses:
+                "200":
+                    $ref: '#/responses/fetchSentMessagesResponse'
+            summary: FetchSentMessages
+    /switch-auto-send:
+        post:
+            description: Returns response of switch auto send result
+            operationId: switchAutoSendRequest
+            responses:
+                "200":
+                    $ref: '#/responses/switchAutoSendResponse'
+            summary: Switch Auto Send
+produces:
+    - application/json
+responses:
+    fetchSentMessagesResponse:
+        description: Successful operation
+        schema:
+            properties:
+                data:
+                    $ref: '#/definitions/fetchSentMessagesData'
+                result:
+                    $ref: '#/definitions/apiError'
+            type: object
+    switchAutoSendResponse:
+        description: Successful operation
+        schema:
+            properties:
+                data:
+                    $ref: '#/definitions/switchAutoSendData'
+                result:
+                    $ref: '#/definitions/apiError'
+            type: object
+schemes:
+    - https
+    - http
+swagger: "2.0"
