@@ -55,7 +55,7 @@ curl --location --request POST 'http://localhost:9090/switch-auto-send' \
 
 - Service running every 2 minutes name' CronSendMessage
 
-## Client:
+## Client and Docker Environment:
 
 Since the curl given in the case did not work, You must change HOOK_CLIENT_URL amd
 HOOK_CLIENT_SECRET with active values.
