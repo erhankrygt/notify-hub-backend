@@ -60,7 +60,8 @@ curl --location --request POST 'http://localhost:9090/switch-auto-send' \
 Since the curl given in the case did not work, You must change HOOK_CLIENT_URL amd
 HOOK_CLIENT_SECRET with active values.
 
- environment:
+```shell
+
       - POSTGRES_DSN=postgres://user:password@db:5432/mydb?sslmode=disable
       - REDIS_ADDRESS=redis:6379
       - REDIS_PASSWORD=redispassword
@@ -69,7 +70,7 @@ HOOK_CLIENT_SECRET with active values.
       - HTTP_SERVER_PORT=:9090
       - HOOK_CLIENT_URL=https://webhook.site/eb8a1637-0cfb-422c-adb3-8efcbd00443d
       - HOOK_CLIENT_SECRET=INS.me1x9uMcyYGlhKKQVPoc.bO3j9aZwRTOcA2Ywo
-
+```
 
 ### Swagger
 
