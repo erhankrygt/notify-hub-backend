@@ -40,14 +40,18 @@ Fetch Sent Messages
 
 - Retrieve a list of sent messages from the server.
 
+```shell
 curl --location 'http://localhost:9090/fetch-sent-messages'
+```
 
 Switch Auto-Send Mode
 
 - Toggle the auto-send mode of messages on or off.
 
+```shell
 curl --location --request POST 'http://localhost:9090/switch-auto-send' \
 --header 'accept: application/json'
+```
 
 - Service running every 2 minutes name' CronSendMessage
 
@@ -71,4 +75,7 @@ HOOK_CLIENT_SECRET with active values.
 
 Swagger Document Url
 
+```shell
 http://localhost:9090/docs
+```
+
