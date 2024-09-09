@@ -19,7 +19,7 @@ type Configs struct {
 // Service represents service configurations
 type Service struct {
 	Environment          string `env:"SERVICE_ENVIRONMENT" required:"true"`
-	SendingMessageTicker string `env:"SERVICE_SENDING_MESSAGE_TICKER" default:"@every 30s"`
+	SendingMessageTicker string `env:"SERVICE_SENDING_MESSAGE_TICKER" default:"@every 120s"`
 }
 
 // Redis represents redis configurations
